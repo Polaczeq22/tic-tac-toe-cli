@@ -4,6 +4,7 @@
 #include <strings.h>
 #include <string.h>
 #include <cstdlib>
+#include <stdlib.h>
 #include <cstdio>
 #include <math.h>
 #include <limits.h>
@@ -97,16 +98,16 @@ int gaem(){
                 for(int i = 0; i < 3; i++){
                         cout<<plansza[i][0]<<" | "<<plansza[i][1]<<" | "<<plansza[i][2]<<endl;
                 }
-                string cur_player_mnemonic = (cur_player == 'O') ? "Kółko!" : "Krzyżyk!";
+                string cur_player_mnemonic = (cur_player == 'O') ? "Circle!" : "Cross!";
 
-                cout<<cur_player_mnemonic<<" Wykonaj ruch! Podaj pozycję, którą chcesz zająć: (format: numer kolumny,numer wiersza)"<<endl;
+                cout<<cur_player_mnemonic<<" Make a move! Enter the position you want to occupy: \n(format:\tcolumn_number,row_number)"<<endl;
 
                 string pos;
                 cin>>pos;
                 
                 int pos_x, pos_y;
                 try{
-                        if(pos == "wyjdź") throw 2;
+                        if(pos == "exit") throw 2;
 
                         pos_x = stoi(pos.substr(0,1));
                         pos_y = stoi(pos.substr(2,1));
@@ -119,16 +120,19 @@ int gaem(){
                         }
                 }
                 catch(invalid_argument err){
-                        cout<<"Nieprawidłowy format odpowiedzi :-("<<endl;
+                        system("clear");
+                        cout<<"Incorrect input format :-("<<endl;
                         continue;
                 }
                 catch(int err){
                         if(err == 1){
-                        cout<<"Nieprawidłowy format odpowiedzi :-("<<endl;
+                        system("clear");
+                        cout<<"Incorrect input format :-("<<endl;
                         continue;
                         }
                         else if(err == 2){
-                                cout<<"Gra przerwana"<<endl;
+                                system("clear");
+                                cout<<"Game halted"<<endl;
                                 game_run++;
                                 continue;
                         }
@@ -138,9 +142,12 @@ int gaem(){
                         plansza[pos_y-1][pos_x-1] = cur_player;
                         cur_player = (cur_player == 'O') ? 'X' : 'O';
                 } else {
-                        cout<<"To miejsce jest zajęte :-("<<endl;
+                        system("clear");
+                        cout<<"This cell has been already occupied :-("<<endl;
                         continue;
                 }
+
+                system("clear");
 
                 char game_result = check_win_condition(plansza);
 
@@ -169,12 +176,13 @@ int gaem(){
 }
 
 int main(){
-        cout<<"Kółko i krzyżyk - Michał Mikuła 2023"<<endl;
+        system("clear");
+        cout<<"Tic-Tac-Toe - Michał Mikuła 2023"<<endl;
         int run = 0;
         while(run<1){
-                cout<<"Co chcesz zrobić? \n"<<endl;
-                cout<<"1. Zagraj"<<endl;
-                cout<<"2. Wyjdź"<<endl;
+                cout<<"What shall we do? \n"<<endl;
+                cout<<"1. Play"<<endl;
+                cout<<"2. Exit"<<endl;
 
                 string menu_in;
                 cin>>menu_in;
@@ -184,26 +192,29 @@ int main(){
                         menu_opt = stoi(menu_in);
                 }
                 catch(invalid_argument err){
-                        cout<<"Nieznana komenda :-("<<endl;
+                        system("clear");
+                        cout<<"Unknown option :-("<<endl;
                         continue;
                 }
 
                 switch(menu_opt){
                         case 1: {
+                                        system("clear");
                                         int result = gaem();
+                                        system("clear");
                                         switch(result){
                                                 case 1:{
-                                                               cout<<"Wygrało Kółko!"<<endl;
+                                                        cout<<"Winner: Circle!"<<endl;
                                                        }
                                                 break;
 
                                                 case 2:{
-                                                          cout<<"Wygrał Krzyżyk!"<<endl;
+                                                          cout<<"Winner: Cross!"<<endl;
                                                         }
                                                 break;
 
                                                 case 3:{
-                                                          cout<<"Remis! Nikt nie wygrał!"<<endl;
+                                                          cout<<"Draw! Winner: None!"<<endl;
                                                        }
                                                 break;
                                         }
@@ -215,7 +226,8 @@ int main(){
                                 }
                         break;
                         default: {
-                                cout<<"Nieznana opcja :-("<<endl;
+                                system("clear");
+                                cout<<"Unknown option :-("<<endl;
                         }
                         break;
                 }
