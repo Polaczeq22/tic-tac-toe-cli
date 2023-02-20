@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/TicTacToeCLI.dir/main.cpp.o -o TicTacToeCLI  GameLibs/libgaem.a GameLibs/libcheck_win_condition.a 

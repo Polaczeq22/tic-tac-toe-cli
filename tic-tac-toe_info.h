@@ -1,0 +1,3 @@
+#define TicTacToeCLI_VERSION_MAJOR 1
+#define TicTacToeCLI_VERSION_MINOR 0
+#define USE_GAMELIBS

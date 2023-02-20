@@ -1,0 +1,2 @@
+/usr/bin/ar qc libgaem.a CMakeFiles/gaem.dir/gaem.cpp.o
+/usr/bin/ranlib libgaem.a

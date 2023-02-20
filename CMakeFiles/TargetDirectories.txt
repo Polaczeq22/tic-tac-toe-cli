@@ -1,0 +1,7 @@
+/home/plq/Documents/tic-tac-toe-cli/CMakeFiles/TicTacToeCLI.dir
+/home/plq/Documents/tic-tac-toe-cli/CMakeFiles/edit_cache.dir
+/home/plq/Documents/tic-tac-toe-cli/CMakeFiles/rebuild_cache.dir
+/home/plq/Documents/tic-tac-toe-cli/GameLibs/CMakeFiles/gaem.dir
+/home/plq/Documents/tic-tac-toe-cli/GameLibs/CMakeFiles/check_win_condition.dir
+/home/plq/Documents/tic-tac-toe-cli/GameLibs/CMakeFiles/edit_cache.dir
+/home/plq/Documents/tic-tac-toe-cli/GameLibs/CMakeFiles/rebuild_cache.dir

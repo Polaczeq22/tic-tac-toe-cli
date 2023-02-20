@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcheck_win_condition.a CMakeFiles/check_win_condition.dir/check_win_condition.cpp.o
+/usr/bin/ranlib libcheck_win_condition.a
